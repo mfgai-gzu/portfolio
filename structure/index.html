@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>材料成型及控制工程 · 作品集 | 结构设计工程师</title>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<style>
+/* ===================== Token（黑白灰 · 简约专业） ===================== */
+:root{
+  --paper:#FFFFFF;
+  --paper-deep:#F4F4F4;
+  --ink:#111111;
+  --ink-soft:#3A3A3A;
+  --gray:#6E6E6E;
+  --gray-light:#9A9A9A;
+  --line:#E2E2E2;
+  --line-strong:#B5B5B5;
+  --dark:#0E0E0E;
+  --dark-line:#333333;
+  --accent:#9E9E9E;
+  --display:"Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --body:"Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--body);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--ink);color:var(--paper);}
+a{color:inherit;text-decoration:none;}
+
+/* ===================== 通用组件 ===================== */
+.container{max-width:1180px;margin:0 auto;padding:0 40px;}
+@media(max-width:768px){.container{padding:0 22px;}}
+
+.eyebrow{
+  font-size:12px;letter-spacing:.28em;color:var(--gray);
+  text-transform:uppercase;font-weight:500;
+}
+.cn-num{
+  font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum";
+}
+
+/* 章节标题栏 —— 图纸标题栏风格 */
+.section-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  padding:26px 0 20px;
+  border-top:2px solid var(--ink);
+  border-bottom:1px solid var(--line);
+  margin-bottom:48px;
+  gap:24px;
+}
+.section-head .t{
+  font-size:clamp(24px,4vw,40px);font-weight:700;letter-spacing:.04em;line-height:1.25;
+}
+.section-head .code{
+  font-size:13px;letter-spacing:.2em;color:var(--gray);
+  white-space:nowrap;padding-bottom:6px;
+}
+@media(max-width:768px){.section-head{flex-direction:column;align-items:flex-start;}}
+
+/* 图注 */
+.figcap{
+  font-size:13px;color:var(--gray);
+  margin-top:12px;letter-spacing:.04em;
+}
+.figcap b{color:var(--ink);font-weight:500;}
+
+/* ===================== Hero ===================== */
+.hero{
+  background:var(--dark);color:var(--paper);
+  min-height:92vh;display:flex;flex-direction:column;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.hero-grid{
+  position:absolute;inset:0;opacity:.5;pointer-events:none;
+  background-image:
+    linear-gradient(var(--dark-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--dark-line) 1px, transparent 1px);
+  background-size:64px 64px;
+}
+.hero-inner{position:relative;padding:80px 0;}
+.hero .name{
+  font-size:clamp(44px,9vw,104px);font-weight:700;letter-spacing:.02em;line-height:1.08;
+}
+.hero .name .thin{font-weight:300;color:var(--accent);}
+.hero .intent{
+  margin-top:34px;font-size:clamp(16px,2.4vw,22px);color:var(--paper);
+  letter-spacing:.06em;font-weight:400;
+}
+.hero .meta{
+  margin-top:52px;display:flex;flex-wrap:wrap;gap:14px 0;
+  border-top:1px solid var(--dark-line);padding-top:26px;
+}
+.hero .meta-item{
+  display:flex;align-items:center;gap:10px;
+  font-size:14px;color:var(--accent);letter-spacing:.05em;
+}
+.hero .meta-item + .meta-item::before{
+  content:"";width:1px;height:14px;background:var(--dark-line);margin:0 22px;
+}
+.hero .meta-item .k{color:var(--gray-light);}
+@media(max-width:768px){
+  .hero .meta{flex-direction:column;align-items:flex-start;gap:10px;}
+  .hero .meta-item + .meta-item::before{display:none;}
+}
+
+/* ===================== 项目索引 ===================== */
+.index-bar{
+  border-bottom:1px solid var(--line);background:var(--paper);
+}
+.index-list{
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.index-item{
+  padding:26px 18px;border-right:1px solid var(--line);
+  transition:background .25s;cursor:pointer;position:relative;
+}
+.index-item:last-child{border-right:none;}
+.index-item:hover{background:var(--paper-deep);}
+.index-item .idx{font-size:12px;letter-spacing:.18em;color:var(--gray);}
+.index-item .nm{font-size:15px;font-weight:500;margin-top:8px;letter-spacing:.03em;}
+.index-item .role{font-size:12px;color:var(--gray);margin-top:6px;line-height:1.5;}
+@media(max-width:768px){
+  .index-list{grid-template-columns:1fr 1fr;}
+  .index-item{border-right:none;border-bottom:1px solid var(--line);}
+  .index-item:nth-child(2n){border-right:none;}
+}
+
+/* ===================== 项目章节 ===================== */
+.section{padding:88px 0;scroll-margin-top:0;}
+.section.alt{background:var(--paper-deep);}
+.proj-intro{
+  display:grid;grid-template-columns:1fr 1.3fr;gap:56px;margin-bottom:64px;
+}
+.proj-intro .brief{
+  font-size:15px;color:var(--ink-soft);line-height:1.9;
+}
+.proj-intro .brief p + p{margin-top:14px;}
+.proj-points{border-top:1px solid var(--line);}
+.proj-point{
+  display:flex;gap:22px;padding:18px 0;border-bottom:1px solid var(--line);
+}
+.proj-point .n{
+  font-size:13px;color:var(--gray);letter-spacing:.1em;padding-top:3px;
+  min-width:58px;font-variant-numeric:tabular-nums;
+}
+.proj-point .c{font-size:15px;color:var(--ink);}
+.proj-point .c b{font-weight:600;}
+@media(max-width:768px){
+  .proj-intro{grid-template-columns:1fr;gap:32px;}
+}
+
+/* ===================== 图纸展示 ===================== */
+.dwg-hero{
+  border:1px solid var(--line-strong);background:#fff;
+  margin-bottom:40px;position:relative;
+}
+.dwg-hero .frame{display:block;padding:14px;}
+.dwg-hero img{width:100%;height:auto;display:block;}
+.dwg-hero .tag{
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid var(--line);
+  padding:10px 16px;font-size:12px;color:var(--gray);letter-spacing:.08em;
+}
+.dwg-hero .tag .no{font-variant-numeric:tabular-nums;}
+
+.dwg-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+.dwg-grid .cell{
+  border:1px solid var(--line);background:#fff;cursor:zoom-in;
+  transition:border-color .2s, transform .2s;
+  display:flex;flex-direction:column;
+}
+.dwg-grid .cell:hover{border-color:var(--ink);}
+.dwg-grid .thumb{flex:1;display:flex;align-items:center;justify-content:center;padding:16px;overflow:hidden;}
+.dwg-grid .thumb img{max-width:100%;max-height:280px;display:block;transition:transform .3s;}
+.dwg-grid .cell:hover .thumb img{transform:scale(1.03);}
+.dwg-grid .cap{
+  border-top:1px solid var(--line);
+  padding:10px 12px;font-size:12.5px;color:var(--gray);display:flex;justify-content:space-between;gap:8px;
+}
+.dwg-grid .cap .nm{color:var(--ink-soft);}
+.dwg-grid .cap .no{color:var(--gray-light);white-space:nowrap;}
+@media(max-width:768px){.dwg-grid{grid-template-columns:repeat(2,1fr);gap:12px;}}
+@media(max-width:480px){.dwg-grid{grid-template-columns:1fr;}}
+
+/* 双图并排 */
+.dwg-pair{
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;
+}
+.dwg-pair .cell{
+  border:1px solid var(--line);background:#fff;cursor:zoom-in;
+  display:flex;flex-direction:column;
+}
+.dwg-pair .cell:hover{border-color:var(--ink);}
+.dwg-pair .thumb{flex:1;display:flex;align-items:center;justify-content:center;padding:16px;overflow:hidden;}
+.dwg-pair .thumb img{max-width:100%;max-height:380px;display:block;}
+.dwg-pair .cap{border-top:1px solid var(--line);padding:10px 12px;font-size:12.5px;color:var(--gray);display:flex;justify-content:space-between;gap:8px;}
+.dwg-pair .cap .nm{color:var(--ink-soft);}
+.dwg-pair .cap .no{color:var(--gray-light);white-space:nowrap;}
+@media(max-width:768px){.dwg-pair{grid-template-columns:1fr;}}
+
+/* 产品 / 结构图 双列 */
+.cad-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:20px;
+}
+.cad-grid .cell{
+  border:1px solid var(--line);background:#fff;cursor:zoom-in;
+  display:flex;flex-direction:column;
+}
+.cad-grid .cell:hover{border-color:var(--ink);}
+.cad-grid .thumb{flex:1;display:flex;align-items:center;justify-content:center;padding:14px;overflow:hidden;}
+.cad-grid .thumb img{max-width:100%;max-height:360px;display:block;object-fit:contain;}
+.cad-grid .cap{border-top:1px solid var(--line);padding:10px 12px;font-size:12.5px;color:var(--gray);display:flex;justify-content:space-between;gap:8px;}
+.cad-grid .cap .nm{color:var(--ink-soft);}
+.cad-grid .cap .no{color:var(--gray-light);white-space:nowrap;}
+@media(max-width:768px){.cad-grid{grid-template-columns:1fr;}}
+
+/* ===================== Lightbox ===================== */
+.lightbox{
+  position:fixed;inset:0;background:rgba(10,10,10,.97);z-index:100;
+  display:none;align-items:center;justify-content:center;flex-direction:column;
+  padding:40px;cursor:zoom-out;
+}
+.lightbox.open{display:flex;}
+.lightbox img{max-width:94vw;max-height:82vh;object-fit:contain;background:#fff;}
+.lightbox .lb-cap{color:#B5B5B5;margin-top:18px;font-size:14px;letter-spacing:.06em;text-align:center;}
+.lightbox .lb-close{
+  position:absolute;top:22px;right:28px;color:#B5B5B5;font-size:30px;cursor:pointer;line-height:1;
+}
+
+/* ===================== 结论 / 页脚 ===================== */
+.closing{
+  background:var(--dark);color:var(--paper);
+  padding:96px 0;
+}
+.closing .big{
+  font-size:clamp(22px,3.4vw,34px);font-weight:300;line-height:1.6;letter-spacing:.02em;
+  max-width:840px;
+}
+.closing .big b{font-weight:500;color:#fff;}
+.contact{
+  margin-top:52px;display:flex;flex-wrap:wrap;gap:18px 40px;
+  border-top:1px solid var(--dark-line);padding-top:26px;
+  font-size:14px;color:var(--accent);letter-spacing:.05em;
+}
+.contact .k{color:var(--gray-light);}
+.foot{
+  background:var(--dark);color:var(--gray-light);font-size:12px;letter-spacing:.1em;
+  padding:26px 0;border-top:1px solid var(--dark-line);
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== Hero ===================== -->
+<header class="hero" id="top">
+  <div class="hero-grid"></div>
+  <div class="container hero-inner">
+    <div class="eyebrow" style="color:var(--accent)">PORTFOLIO · 材料成型及控制工程</div>
+    <h1 class="name">结构设计<br><span class="thin">作品集</span></h1>
+    <div class="intent">求职意向 · 结构设计工程师（钣金 / 注塑件方向）</div>
+    <div class="meta">
+      <div class="meta-item"><span class="k">学校</span><span>贵州大学（211）</span></div>
+      <div class="meta-item"><span class="k">专业</span><span>材料成型及控制工程 · 本科</span></div>
+      <div class="meta-item"><span class="k">排名</span><span>10 / 84（前 12%）</span></div>
+      <div class="meta-item"><span class="k">届别</span><span>2027 届</span></div>
+      <div class="meta-item"><span class="k">实习</span><span>吉利汽车贵阳基地 · 生产制造轮岗</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== 项目索引 ===================== -->
+<nav class="index-bar">
+  <div class="container">
+    <div class="index-list">
+      <a class="index-item" href="#prj01">
+        <div class="idx">PRJ-01</div>
+        <div class="nm">精密注塑模具结构设计</div>
+        <div class="role">薄壁件 · 模流仿真 · 全套图纸</div>
+      </a>
+      <a class="index-item" href="#prj02">
+        <div class="idx">PRJ-02</div>
+        <div class="nm">冲压复合模具设计</div>
+        <div class="role">时序分离 · 工程图纸</div>
+      </a>
+      <a class="index-item" href="#prj03">
+        <div class="idx">PRJ-03</div>
+        <div class="nm">蝴蝶蚊香结构设计</div>
+        <div class="role">产品设计 · 三维大赛</div>
+      </a>
+      <a class="index-item" href="#prj04">
+        <div class="idx">PRJ-04</div>
+        <div class="nm">铝合金壳体压铸模具</div>
+        <div class="role">6061-T6 · 壁厚设计</div>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== 项目一：精密注塑模具（主角） ===================== -->
+<section class="section" id="prj01">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">PRJ-01 · 课程设计</div>
+        <div class="t">基于模流仿真的精密注塑模具结构设计</div>
+      </div>
+      <div class="code">INJECTION MOLD · STRUCTURAL DESIGN</div>
+    </div>
+
+    <div class="proj-intro">
+      <div class="proj-points">
+        <div class="proj-point"><div class="n">01</div><div class="c"><b>结构设计</b>：完成 EPP 发泡玩具盖壳体（单件质量约 0.33g 薄壁件）注塑系统、脱模机构及冷却系统设计，采用一模两腔单分型面两板模结构</div></div>
+        <div class="proj-point"><div class="n">02</div><div class="c"><b>模流仿真</b>：运用 Moldflow 完成填充—保压—翘曲全流程仿真，优化浇口位置与冷却布局，将薄壁件翘曲变形控制在公差范围内</div></div>
+        <div class="proj-point"><div class="n">03</div><div class="c"><b>三维建模与装配</b>：使用 UG NX 完成型腔、型芯及整模三维装配，完成成型零件关键尺寸计算与模具成本估算</div></div>
+        <div class="proj-point"><div class="n">04</div><div class="c"><b>图纸输出</b>：输出装配图、型腔、型芯、产品图全套工程图纸，规范标注公差与工艺要求</div></div>
+      </div>
+      <div class="brief">
+        <p>面向薄壁小质量（0.33g）EPP 发泡壳体，采用一模两腔两板模结构，通过浇口与冷却布局的模流仿真迭代，解决薄壁件填充不足与翘曲变形问题。</p>
+        <p>仿真驱动的设计流程——先以 Moldflow 验证浇注与冷却方案，再据此完成三维建模与出图，体现"仿真指导设计"的工程方法。</p>
+      </div>
+    </div>
+
+    <div class="dwg-hero" data-zoom="注塑模装配图 A1 · 一模两腔两板模">
+      <div class="frame"><img src="https://aka.doubaocdn.com/s/UY0retI7o7" alt="注塑模装配图" loading="lazy"></div>
+      <div class="tag"><span>EPP 玩具盖注塑模 · 总装图</span><span class="no">DW-01 · A1</span></div>
+    </div>
+
+    <div class="dwg-pair">
+      <div class="cell" data-zoom="型腔 A2">
+        <div class="thumb"><img src="https://aka.doubaocdn.com/s/CI2y6g9vrd" alt="型腔" loading="lazy"></div>
+        <div class="cap"><span class="nm">型腔</span><span class="no">图 1-1</span></div>
+      </div>
+      <div class="cell" data-zoom="型芯 A2">
+        <div class="thumb"><img src="https://aka.doubaocdn.com/s/kECDe57Nkw" alt="型芯" loading="lazy"></div>
+        <div class="cap"><span class="nm">型芯</span><span class="no">图 1-2</span></div>
+      </div>
+    </div>
+    <div class="dwg-grid" style="margin-top:20px;">
+      <div class="cell" data-zoom="产品图 A4 · EPP 玩具盖">
+        <div class="thumb"><img src="https://aka.doubaocdn.com/s/5IBSmp1U3n" alt="注塑产品图" loading="lazy"></div>
+        <div class="cap"><span class="nm">产品图</span><span class="no">图 1-3</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 项目二：冲压复合模具（次角） ===================== -->
+<section class="section alt" id="prj02">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">PRJ-02 · 课程设计</div>
+        <div class="t">时序分离冲压复合模具设计与工艺优化</div>
+      </div>
+      <div class="code">STAMPING COMPOUND DIE</div>
+    </div>
+
+    <div class="proj-intro">
+      <div class="proj-points">
+        <div class="proj-point"><div class="n">01</div><div class="c"><b>结构方案设计</b>：针对高精度带孔四角弯曲件（10 钢冷轧薄板，t=1.2mm），完成冲孔—落料—弯曲三工序复合结构方案设计，材料利用率达 88.56%</div></div>
+        <div class="proj-point"><div class="n">02</div><div class="c"><b>回弹控制</b>：设计三级不等高凸模时序分离结构，配合上下双向回弹校正，将折弯角度误差控制在 ±0.5° 以内</div></div>
+        <div class="proj-point"><div class="n">03</div><div class="c"><b>计算与选型</b>：完成冲裁力、弯曲力计算与压力机选型（适配 J23-25 开式压力机，250kN），严格遵循 GB/T 公差标准</div></div>
+        <div class="proj-point"><div class="n">04</div><div class="c"><b>图纸输出</b>：输出 AutoCAD 总装图 1 张、核心零件图 12 张，覆盖凸模、凹模板、固定板、模座等关键零件</div></div>
+      </div>
+      <div class="brief">
+        <p>将冲孔、落料、弯曲三工序集成于一套复合模中，通过三级不等高凸模的时序分离，在单次冲压行程内依次完成冲裁与弯曲动作，兼顾效率与精度。</p>
+        <p>折弯回弹是薄板弯曲的核心难题，通过上下双向回弹校正与角度补偿，将折弯误差稳定控制在 ±0.5° 以内。</p>
+      </div>
+    </div>
+
+    <div class="dwg-hero" data-zoom="装配图 A1 · 时序分离冲压复合模">
+      <div class="frame"><img src="https://aka.doubaocdn.com/s/A6L7jLGQI1" alt="时序分离冲压复合模装配图" loading="lazy"></div>
+      <div class="tag"><span>时序分离冲压复合模 · 总装图</span><span class="no">DW-02 · A1</span></div>
+    </div>
+
+    <div class="dwg-grid">
+      <div class="cell" data-zoom="产品图 A4 · 带孔四角弯曲件">
+        <div class="thumb"><img src="https://aka.doubaocdn.com/s/L60medcytG" alt="产品图" loading="lazy"></div>
+        <div class="cap"><span class="nm">产品图</span><span class="no">图 2-1</span></div>
+      </div>
+      <div class="cell" data-zoom="冲孔凸模 A4">
+        <div class="thumb"><img src="https://aka.doubaocdn.com/s/kfA1FSEBie" alt="冲孔凸模" loading="lazy"></div>
+        <div class="cap"><span class="nm">冲孔凸模</span><span class="no">图 2-2</span></div>
+      </div>
+      <div class="cell" data-zoom="落料凹模板 A4">
+        <div class="thumb"><img src="https://aka.doubaocdn.com/s/OoVd5hJubd" alt="落料凹模板" loading="lazy"></div>
+        <div class="cap"><span class="nm">落料凹模板</span><span class="no">图 2-3</span></div>
+      </div>
+      <div class="cell" data-zoom="弯曲冲孔凸凹模 A4">
+        <div class="thumb"><img src="https://aka.doubaocdn.com/s/lbhgWgneW8" alt="弯曲冲孔凸凹模" loading="lazy"></div>
+        <div class="cap"><span class="nm">弯曲冲孔凸凹模</span><span class="no">图 2-4</span></div>
+      </div>
+      <div class="cell" data-zoom="弯曲落料凸凹模 A4">
+        <div class="thumb"><img src="https://aka.doubaocdn.com/s/P1547WOM3y" alt="弯曲落料凸凹模" loading="lazy"></div>
+        <div class="cap"><span class="nm">弯曲落料凸凹模</span><span class="no">图 2-5</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 项目三：蝴蝶蚊香（弱化） ===================== -->
+<section class="section" id="prj03">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">PRJ-03 · 全国三维数字化创新设计大赛 · 校赛三等奖</div>
+        <div class="t">蝴蝶蚊香结构设计</div>
+      </div>
+      <div class="code">PRODUCT DESIGN · SOLIDWORKS</div>
+    </div>
+
+    <div class="proj-intro">
+      <div class="proj-points">
+        <div class="proj-point"><div class="n">01</div><div class="c"><b>结构设计</b>：负责产品外观与内部结构方案设计，使用 SolidWorks 完成三维建模、装配验证与干涉检查，并进行 DFM 可制造性优化</div></div>
+      </div>
+      <div class="brief">
+        <p>将仿生造型与收纳功能结合，用 SolidWorks 完成从概念到可装配的三维验证，覆盖产品结构设计、装配关系与可制造性优化。</p>
+      </div>
+    </div>
+
+    <div class="cad-grid">
+      <div class="cell" data-zoom="SolidWorks 建模 · 线框模型">
+        <div class="thumb"><img src="https://aka.doubaocdn.com/s/umIM8KVJav" alt="蝴蝶蚊香建模" loading="lazy"></div>
+        <div class="cap"><span class="nm">SolidWorks 建模</span><span class="no">图 3-1</span></div>
+      </div>
+      <div class="cell" data-zoom="蝴蝶蚊香 · 产品渲染">
+        <div class="thumb"><img src="https://aka.doubaocdn.com/s/VxdMtEdqVo" alt="蝴蝶蚊香渲染" loading="lazy"></div>
+        <div class="cap"><span class="nm">产品渲染</span><span class="no">图 3-2</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 项目四：压铸模具（聚焦结构） ===================== -->
+<section class="section alt" id="prj04">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">PRJ-04 · 课程设计</div>
+        <div class="t">6061-T6 铝合金壳体压铸模具开发</div>
+      </div>
+      <div class="code">DIE CASTING · AL6061-T6</div>
+    </div>
+
+    <div class="proj-intro">
+      <div class="proj-points">
+        <div class="proj-point"><div class="n">01</div><div class="c"><b>产品结构</b>：完成 6061-T6 铝合金壳体产品建模与壁厚均匀性设计，针对薄壁压铸件结构进行可制造性评估</div></div>
+        <div class="proj-point"><div class="n">02</div><div class="c"><b>全周期输出</b>：完成从 UG 三维建模、二维图纸到报告答辩的全周期交付，输出完整项目文档（综合评分 88/100）</div></div>
+      </div>
+      <div class="brief">
+        <p>面向 6061-T6 铝合金壳体压铸件，关注薄壁结构的壁厚设计与成型可行性，建立"产品结构—成型工艺—图纸输出"的完整设计认知。</p>
+      </div>
+    </div>
+
+    <div class="cad-grid">
+      <div class="cell" data-zoom="产品图 · 6061-T6 铝合金壳体">
+        <div class="thumb"><img src="https://aka.doubaocdn.com/s/PpQk6mh4ak" alt="压铸产品图" loading="lazy"></div>
+        <div class="cap"><span class="nm">产品图 · 6061-T6 壳体</span><span class="no">图 4-1</span></div>
+      </div>
+      <div class="cell" data-zoom="壁厚检查">
+        <div class="thumb"><img src="https://aka.doubaocdn.com/s/fDcjduVsRB" alt="壁厚检查" loading="lazy"></div>
+        <div class="cap"><span class="nm">壁厚检查</span><span class="no">图 4-2</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 结论 ===================== -->
+<footer class="closing" id="contact">
+  <div class="container">
+    <div class="eyebrow" style="color:var(--gray-light)">SUMMARY</div>
+    <div class="big">
+      材料成型专业基础扎实（年级前 12%），具备<b>从产品结构设计、三维建模、工程图到可制造性分析（DFM）的全流程能力</b>，熟悉注塑、冲压、压铸等成型工艺对结构设计的约束，图纸与项目均真实可查。
+    </div>
+    <div class="contact">
+      <div class="item"><span class="k">实习</span><span>吉利汽车贵阳制造基地 · 生产制造（轮岗）</span></div>
+    </div>
+  </div>
+</footer>
+<div class="foot">
+  <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:0 40px;max-width:1260px;">
+    <span>材料成型及控制工程 · 作品集（结构设计版）</span>
+    <span>贵州大学 · 2027 届 · 年级排名 10 / 84（前 12%）</span>
+  </div>
+</div>
+
+<!-- ===================== Lightbox ===================== -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="图纸放大查看">
+  <span class="lb-close" id="lbClose">&times;</span>
+  <img id="lbImg" src="" alt="">
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<script>
+// ===== Lightbox：点击图纸放大 =====
+(function(){
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lbImg');
+  var lbCap = document.getElementById('lbCap');
+  var closeBtn = document.getElementById('lbClose');
+
+  function openLB(img, cap){
+    lbImg.src = img.src;
+    lbImg.alt = img.alt || '';
+    lbCap.textContent = cap || img.alt || '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLB(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('[data-zoom]').forEach(function(el){
+    el.addEventListener('click', function(){
+      var img = el.querySelector('img');
+      if(img){ openLB(img, el.getAttribute('data-zoom')); }
+    });
+    el.style.cursor = 'zoom-in';
+  });
+  lb.addEventListener('click', function(e){ if(e.target === lb || e.target === closeBtn) closeLB(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLB(); });
+})();
+</script>
+</body>
+</html>
